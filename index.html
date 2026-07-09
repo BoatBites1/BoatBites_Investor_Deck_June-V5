@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoatBites — Commerce and Logistics for Life on the Water</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2D3D;
+    --navy-deep:#0A2230;
+    --teal:#00A9B8;
+    --teal-dark:#0C8E9B;
+    --pink:#EE508A;
+    --pink-deep:#E23576;
+    --bg-light:#F5FAFD;
+    --bg-white:#FFFFFF;
+    --pink-light:#FFE4F3;
+    --teal-light:#EAF7F8;
+    --text-body:#3E5866;
+    --text-navy:var(--navy);
+    --border-light:#E1EDF2;
+    --row-alt:#F2F8FB;
+    --card-radius:14px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--text-body);
+    background:var(--bg-white);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Poppins',sans-serif;
+    color:var(--navy);
+    line-height:1.15;
+  }
+  .section{
+    position:relative;
+    padding:88px 8vw;
+    overflow:hidden;
+  }
+  .section-light{ background:var(--bg-light); }
+  .section-white{ background:var(--bg-white); }
+  .section-navy{ background:var(--navy); color:#EAF3F6; }
+  .section-navy .body-text{ color:#C9DCE3; }
+  .section-black{ background:#050505; color:#fff; }
+
+  .inner{ max-width:1240px; margin:0 auto; position:relative; z-index:2;}
+
+  .eyebrow{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--pink);
+    margin-bottom:14px;
+  }
+  .section-navy .eyebrow{ color:var(--teal); }
+
+  h2.headline{
+    font-size:clamp(28px,3.6vw,42px);
+    font-weight:800;
+    max-width:820px;
+    margin-bottom:22px;
+  }
+  .section-navy h2.headline{ color:#fff; }
+
+  .underline{
+    width:110px;
+    height:5px;
+    background:var(--pink);
+    border-radius:3px;
+    margin-bottom:34px;
+  }
+
+  .bullets{ list-style:none; margin:0 0 28px 0; padding:0; }
+  .bullets li{
+    position:relative;
+    padding-left:26px;
+    margin-bottom:16px;
+    font-size:16px;
+    line-height:1.55;
+    color:var(--text-body);
+  }
+  .section-navy .bullets li{ color:#D7E6EA; }
+  .bullets li::before{
+    content:'';
+    position:absolute;
+    left:0; top:9px;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--pink);
+  }
+
+  .statement{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:clamp(20px,2.4vw,28px);
+    color:var(--pink);
+    text-align:center;
+    line-height:1.4;
+    max-width:640px;
+    margin:34px auto;
+  }
+  .statement.on-dark{ color:#fff; }
+
+  /* Callout boxes */
+  .box{
+    border-radius:var(--card-radius);
+    padding:22px 26px;
+    border:1.5px solid var(--pink);
+    background:#fff;
+  }
+  .box.pink-fill{ background:var(--pink-light); border-color:var(--pink); }
+  .box.teal-outline{ border-color:var(--teal); background:#fff; }
+  .box.navy-fill{ background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.35); }
+  .box h4{ font-size:16px; margin-bottom:8px; }
+  .box p{ font-size:15px; line-height:1.55; color:var(--text-body); }
+  .section-navy .box p{ color:#D7E6EA; }
+  .box strong.tag{ display:block; font-weight:700; margin-bottom:6px; }
+
+  /* Tables */
+  table.data{
+    width:100%;
+    border-collapse:collapse;
+    font-size:15px;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+  }
+  table.data thead th{
+    background:var(--navy-deep);
+    color:#fff;
+    text-align:left;
+    font-weight:700;
+    padding:13px 20px;
+    font-size:14px;
+  }
+  table.data.teal-head thead th{ background:var(--teal); }
+  table.data.pink-head thead th{ background:var(--pink); }
+  table.data tbody td{
+    padding:13px 20px;
+    border-bottom:1px solid var(--border-light);
+    color:var(--text-body);
+  }
+  table.data tbody td:first-child{ font-weight:700; color:var(--navy); }
+  table.data tbody tr:nth-child(even){ background:var(--row-alt); }
+  table.data tbody td.num{ text-align:right; }
+  table.data thead th.num{ text-align:right; }
+
+  /* Stat cards */
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+    margin-bottom:36px;
+  }
+  .stat-card{
+    background:#fff;
+    border:1px solid var(--border-light);
+    border-radius:var(--card-radius);
+    padding:22px 20px;
+  }
+  .stat-card .num{
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:clamp(26px,3vw,34px);
+    color:var(--teal);
+    margin-bottom:6px;
+  }
+  .stat-card .num.pink{ color:var(--pink); }
+  .stat-card .num.navy{ color:var(--navy); }
+  .stat-card .label{ font-size:14px; color:#7A8C97; }
+
+  /* Grid layouts */
+  .grid-2{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+  .grid-2.tight{ gap:40px; }
+  @media (max-width:900px){ .grid-2{ grid-template-columns:1fr; gap:36px; } }
+
+  img.contained{
+    width:100%;
+    display:block;
+    border-radius:var(--card-radius);
+  }
+  .img-frame{
+    background:var(--bg-light);
+    border-radius:20px;
+    padding:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* Split full-bleed panel (right photo, left content) */
+  .split{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    min-height:100%;
+  }
+  @media (max-width:900px){ .split{ grid-template-columns:1fr; } }
+  .split-panel{
+    padding:88px 5vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .split-photo{
+    position:relative;
+    min-height:420px;
+    background-size:cover;
+    background-position:center;
+  }
+  .split-photo .overlay-text{
+    position:absolute; inset:0;
+    display:flex; align-items:center; justify-content:center;
+    padding:8%;
+    background:linear-gradient(180deg, rgba(0,60,70,.35), rgba(0,60,70,.55));
+  }
+  .split-photo .overlay-text p{
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    color:#fff;
+    text-align:center;
+    font-size:clamp(20px,2.6vw,30px);
+    line-height:1.45;
+  }
+
+  .logo-mark{ height:34px; }
+  .logo-full{ height:42px; }
+  .top-icon{
+    position:absolute;
+    top:34px; right:5vw;
+    height:40px;
+    z-index:3;
+  }
+  .page-num{
+    position:absolute;
+    bottom:24px; left:5vw;
+    font-size:12px;
+    color:#9BB0BA;
+  }
+
+  /* numbered steps */
+  .steps{ display:flex; flex-direction:column; gap:30px; }
+  .step{ display:flex; gap:20px; }
+  .step .n{
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:30px;
+    color:var(--pink);
+    min-width:40px;
+  }
+  .step h4{ font-size:17px; margin-bottom:6px; }
+  .step p{ font-size:15px; color:var(--text-body); }
+
+  /* icon cards row (business model) */
+  .icon-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:16px;
+    margin-bottom:40px;
+  }
+  .icon-card{
+    background:#fff;
+    border:1px solid var(--border-light);
+    border-radius:var(--card-radius);
+    padding:22px 16px;
+    text-align:center;
+  }
+  .icon-card .icon-wrap{
+    height:56px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:12px;
+  }
+  .icon-card .icon-wrap img{ max-height:52px; max-width:70px; object-fit:contain; }
+  .icon-card h4{ font-size:15px; margin-bottom:6px; }
+  .icon-card .status{ font-size:12.5px; color:#8A9BA5; margin-bottom:8px; }
+  .icon-card .margin{ font-weight:700; color:var(--pink); font-size:14px; }
+
+  /* timeline cards (milestones) */
+  .timeline-row{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:18px;
+    margin-bottom:40px;
+  }
+  .timeline-card{
+    border-radius:var(--card-radius);
+    padding:22px 18px;
+    text-align:center;
+    border:1.5px solid var(--teal);
+  }
+  .timeline-card.pink{ border-color:var(--pink); background:var(--pink-light); }
+  .timeline-card.teal{ background:var(--teal-light); }
+  .timeline-card h4{ font-size:17px; margin-bottom:10px; }
+  .timeline-card p{ font-size:13.5px; color:var(--text-body); line-height:1.5; }
+
+  /* neon stats page */
+  .neon-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px 60px;
+    margin:50px 0 40px;
+  }
+  @media (max-width:800px){ .neon-stats{ grid-template-columns:1fr 1fr; } }
+  .neon-stat .num{
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:clamp(30px,4vw,46px);
+    margin-bottom:8px;
+  }
+  .neon-stat p{ font-size:14px; color:#C9C9C9; line-height:1.5;}
+  .neon-yellow{ color:#F4F53A; }
+  .neon-green{ color:#C9F98A; }
+  .neon-cyan{ color:#5FE3E8; }
+  .neon-magenta{ color:#F84FB0; }
+
+  /* pie chart */
+  .pie-wrap{ display:flex; align-items:center; justify-content:center; }
+  .pie{
+    width:320px; height:320px;
+    border-radius:50%;
+    position:relative;
+    background:conic-gradient(
+      var(--teal) 0% 25%,
+      #8FCBCF 25% 45%,
+      #BFE0E2 45% 60%,
+      #4FB9C2 60% 100%
+    );
+    border:10px solid var(--pink);
+  }
+  .pie span{
+    position:absolute;
+    font-family:'Poppins',sans-serif;
+    font-weight:800;
+    font-size:26px;
+    color:var(--pink);
+  }
+  .pie span.p25{ top:22%; right:20%; color:#fff; }
+  .pie span.p20{ top:26%; left:14%; }
+  .pie span.p15{ bottom:22%; left:18%; }
+  .pie span.p40{ bottom:20%; right:26%; color:#fff; }
+
+  footer{
+    background:var(--navy);
+    color:#9BB0BA;
+    text-align:center;
+    padding:36px 6vw;
+    font-size:13px;
+  }
+  footer a{ color:var(--teal); text-decoration:none; }
+
+  .cta-btn{
+    display:inline-block;
+    margin-top:10px;
+    background:var(--pink);
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    padding:14px 30px;
+    border-radius:30px;
+    text-decoration:none;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. COVER ============ -->
+<section class="section" style="padding:0; min-height:100vh; display:flex; align-items:center; background:#0a2c3d;">
+  <div style="position:absolute; inset:0; background-image:url('assets/hero-boat-aerial.jpg'); background-size:cover; background-position:center;"></div>
+  <div style="position:absolute; inset:0; background:linear-gradient(100deg, rgba(6,40,55,.92) 0%, rgba(6,40,55,.78) 40%, rgba(6,40,55,.35) 75%);"></div>
+  <div class="inner" style="padding:0 8vw; width:100%;">
+    <img src="assets/logo-full.png" alt="BoatBites — Anchor. Order. Enjoy." class="logo-full" style="margin-bottom:64px; filter:brightness(1.05);">
+    <h1 style="font-family:'Poppins'; font-weight:800; color:#fff; font-size:clamp(32px,5vw,54px); max-width:680px; line-height:1.15;">Commerce and Logistics<br>for Life on the Water</h1>
+    <p style="color:var(--teal); font-family:'Poppins'; font-weight:700; font-size:20px; margin:26px 0 14px;">Boater Happiness, Delivered.</p>
+    <div style="width:130px; height:5px; background:var(--pink); border-radius:3px; margin-bottom:26px;"></div>
+    <p style="color:#DCE9ED; font-size:16px; margin-bottom:8px;">Series A Investor Presentation</p>
+    <p style="color:#fff; font-weight:700; font-size:17px; margin-bottom:60px;">Raising $5M at $20M pre-money</p>
+    <p style="color:#BFD3D9; font-size:14px;">John@BoatBites.app &nbsp;|&nbsp; BoatBites.app &nbsp;|&nbsp; 321.507.5070</p>
+  </div>
+</section>
+
+<!-- ============ 2. THE PROBLEM ============ -->
+<section class="section" style="padding:0;">
+  <div class="split">
+    <div class="split-panel section-white">
+      <div class="eyebrow">The Problem</div>
+      <h2 class="headline">Ecommerce stops at the shoreline</h2>
+      <div class="underline"></div>
+      <ul class="bullets">
+        <li>Boaters forget things, run out of things, crave things, and need things while already on the water.</li>
+        <li>On land, consumers expect instant access to food, drinks, groceries, and essentials.</li>
+        <li>On the water, the same convenience does not exist.</li>
+        <li>Current alternatives are inefficient: return to dock, call manually, overpack, or go without.</li>
+      </ul>
+      <p class="statement" style="margin:10px 0 30px; text-align:left; max-width:none;">BoatBites is the only ecommerce + logistics platform built for life on the water.</p>
+      <div class="box pink-fill">
+        <strong class="tag" style="color:var(--navy);">Investor point</strong>
+        <p style="color:var(--navy); font-weight:600;">The moment of need happens during the boating experience. That urgency creates willingness to pay.</p>
+      </div>
+    </div>
+    <div class="split-photo" style="background-image:url('assets/water-texture.jpg'); background-color:#0f8f99;">
+      <div class="overlay-text">
+        <p>The boat is one of the few places where modern commerce<br>still breaks down.<br><br>Until Now.<br><br>BoatBites built the first and only on-the-water delivery network for boaters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. CUSTOMER PAIN ============ -->
+<section class="section section-white">
+  <div class="inner">
+    <div class="eyebrow">Customer Pain</div>
+    <h2 class="headline">Boaters have money to spend, but no way to spend it while boating</h2>
+    <div class="underline"></div>
+    <div class="grid-2">
+      <div>
+        <img src="assets/friends-toast.jpg" alt="Friends toasting on a boat" class="contained" style="margin-bottom:24px;">
+        <p style="font-size:15.5px; margin-bottom:22px;">Boating is a high-discretionary-spend lifestyle. The customer pain is not theoretical; it happens in the middle of the outing, when convenience is most valuable.</p>
+        <div class="box teal-outline" style="background:var(--teal); border:none;">
+          <p style="color:#fff; font-weight:700; text-align:center; font-size:16px;">BoatBites is the only company that can sell and deliver to boaters while they are boating in the United States.</p>
+        </div>
+      </div>
+      <table class="data teal-head">
+        <thead><tr><th>Common Use Case</th><th>Immediate Need</th></tr></thead>
+        <tbody>
+          <tr><td>Food &amp; drinks</td><td>Keep the day going</td></tr>
+          <tr><td>Ice</td><td>High-frequency, urgent item</td></tr>
+          <tr><td>Sunscreen / towels / chargers</td><td>Forgotten essentials</td></tr>
+          <tr><td>Party supplies</td><td>Occasion-based demand</td></tr>
+          <tr><td>Charter catering</td><td>Higher AOV, repeatable demand</td></tr>
+          <tr><td>Sandbars / events</td><td>Concentrated order volume</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. MARKET OPPORTUNITY ============ -->
+<section class="section section-light">
+  <div class="inner" style="position:relative;">
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon">
+    <div class="eyebrow">Market Opportunity</div>
+    <h2 class="headline">A massive boating economy is missing modern ecommerce infrastructure</h2>
+    <div class="underline"></div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="num navy">$230B</div><div class="label">Total boating economic impact</div></div>
+      <div class="stat-card"><div class="num pink">$55.6B</div><div class="label">Annual boating retail spending</div></div>
+      <div class="stat-card"><div class="num">$12.1B</div><div class="label">Lifestyle spending</div></div>
+      <div class="stat-card"><div class="num navy">300M</div><div class="label">Boating outings annually</div></div>
+    </div>
+    <div class="grid-2 tight">
+      <table class="data teal-head">
+        <thead><tr><th>Market Layer</th><th class="num">Estimate</th></tr></thead>
+        <tbody>
+          <tr><td>Total boating economy</td><td class="num">$230B</td></tr>
+          <tr><td>Boating retail spend</td><td class="num">$55.6B</td></tr>
+          <tr><td>Lifestyle / essentials spend</td><td class="num">$12.1B</td></tr>
+          <tr><td>Aftermarket accessories</td><td class="num">$12.4B</td></tr>
+          <tr><td>Initial serviceable market</td><td class="num">$4.1B</td></tr>
+          <tr><td>Initial Florida beachhead</td><td class="num">$450M</td></tr>
+          <tr><td>Year 1 target revenue opportunity</td><td class="num">$985,750</td></tr>
+        </tbody>
+      </table>
+      <div>
+        <img src="assets/tam-sam-som.jpg" alt="BoatBites Market Opportunity: TAM $55.6B, SAM $4.1B, SOM $450M" class="contained" style="margin-bottom:20px;">
+        <div class="box">
+          <strong class="tag">Investor focus</strong>
+          <p>The huge market number gets attention. The fundable case comes from the first capturable slice: high-density boating zones with repeatable ordering behavior.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. WHY NOW ============ -->
+<section class="section" style="padding:0;">
+  <div style="position:relative; min-height:640px; background-image:url('assets/boat-bow-ocean.jpg'); background-size:cover; background-position:right center;">
+    <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(6,34,44,.94) 0%, rgba(6,34,44,.85) 42%, rgba(6,34,44,0) 58%);"></div>
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon" style="filter:brightness(1.4);">
+    <div style="position:relative; z-index:2; max-width:600px; padding:90px 6vw;">
+      <div class="eyebrow" style="color:var(--teal);">Why Now</div>
+      <h2 class="headline" style="color:#fff;">Instant gratification is now expected everywhere</h2>
+      <div class="underline"></div>
+      <ul class="bullets">
+        <li style="color:#DCE9ED;">Consumers demand what they want, when they want it.</li>
+        <li style="color:#DCE9ED;">Lifestyle categories are transforming first.</li>
+        <li style="color:#DCE9ED;">Boaters are underserved despite high spending.</li>
+        <li style="color:#DCE9ED;">The gap between land-based convenience and water-based inconvenience is widening.</li>
+        <li style="color:#DCE9ED;">The boat is the one place high-income customers cannot transact.</li>
+      </ul>
+      <div class="box" style="background:var(--teal); border:none; margin-top:20px;">
+        <p style="color:#fff; font-weight:700;">The expectation changed. The water has not caught up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. HOW IT WORKS ============ -->
+<section class="section section-light">
+  <div class="inner" style="position:relative;">
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon">
+    <div class="eyebrow">How It Works</div>
+    <h2 class="headline">Tap the app. Stay on the water. Get what you need.</h2>
+    <div class="underline"></div>
+    <div class="grid-2">
+      <div class="steps">
+        <div class="step"><div class="n">1</div><div><h4>Pin your boat location</h4><p>Boater opens the app and anchors their current location.</p></div></div>
+        <div class="step"><div class="n">2</div><div><h4>Select items or packages</h4><p>Choose food, drinks, ice, essentials, catering, or partner inventory.</p></div></div>
+        <div class="step"><div class="n">3</div><div><h4>Fulfill through the network</h4><p>BoatBites routes the order through the correct vendor, marina, captain, and dispatch workflow.</p></div></div>
+        <div class="step"><div class="n">4</div><div><h4>Deliver on the water</h4><p>Gig-worker courier delivers directly to the boat with real-time location support.</p></div></div>
+      </div>
+      <div class="img-frame"><img src="assets/phone-mockup.jpg" alt="BoatBites app screens" style="max-height:420px; border-radius:10px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. TECHNOLOGY PLATFORM ============ -->
+<section class="section section-white">
+  <div class="inner" style="position:relative;">
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon">
+    <div class="eyebrow">Technology Platform</div>
+    <h2 class="headline">BoatBites has built the operating system for on-water delivery</h2>
+    <div class="underline"></div>
+    <div class="grid-2" style="margin-bottom:36px;">
+      <div class="img-frame"><img src="assets/dashboard-monitor.jpg" alt="BoatBites operations dashboard" style="max-height:320px;"></div>
+      <ul class="bullets" style="font-weight:700; color:var(--navy);">
+        <li style="color:var(--navy); font-weight:700;">Boater app</li>
+        <li style="color:var(--navy); font-weight:700;">Captain/courier app</li>
+        <li style="color:var(--navy); font-weight:700;">Merchant dashboard</li>
+        <li style="color:var(--navy); font-weight:700;">Operations console</li>
+        <li style="color:var(--navy); font-weight:700;">Turnkey integrations</li>
+        <li style="color:var(--navy); font-weight:700;">Real-time location tools</li>
+        <li style="color:var(--navy); font-weight:700;">Routing and dispatch intelligence</li>
+      </ul>
+    </div>
+    <table class="data">
+      <thead><tr><th>Proof Point</th><th>Current</th></tr></thead>
+      <tbody>
+        <tr><td>Platform version</td><td>3.4.2</td></tr>
+        <tr><td>Orders processed through platform</td><td>3500+</td></tr>
+        <tr><td>Average delivery time</td><td>60-90 minutes</td></tr>
+        <tr><td>Delivery completion rate</td><td>97+</td></tr>
+        <tr><td>Support ticket rate</td><td>2.5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 8. TECHNOLOGY / SCALABLE LOGISTICS ============ -->
+<section class="section section-white">
+  <div class="inner">
+    <div class="eyebrow">Technology</div>
+    <h2 class="headline">Scalable Logistics Tech</h2>
+    <div class="underline"></div>
+    <div class="grid-2">
+      <div>
+        <h4 style="margin-bottom:10px; font-size:18px;">The Proprietary "Recipe"</h4>
+        <p style="margin-bottom:22px;">BoatBites uses complex AI to optimize vendor and driver positioning. Unlike land-based delivery, our environment is dynamic: customers move, food trucks move, and tides shift.</p>
+        <p style="margin-bottom:30px;">Our geofencing and maritime-specific routing ensures hot treats and icy drinks arrive in around 60 minutes, anywhere on the water.</p>
+        <p class="statement" style="text-align:left; max-width:none;">Geofencing and maritime routing turn moving water into a repeatable delivery network.</p>
+      </div>
+      <div class="img-frame"><img src="assets/jetski.png" alt="BoatBites courier jet ski" style="max-height:360px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. MOAT ============ -->
+<section class="section" style="padding:0;">
+  <div class="split">
+    <div class="split-panel section-white">
+      <div class="eyebrow">Moat</div>
+      <h2 class="headline" style="margin-bottom:6px;">Exclusive Marina Network</h2>
+      <h3 style="font-size:clamp(22px,2.6vw,30px); font-weight:800; margin-bottom:22px;">A Defensible Operational Model</h3>
+      <div class="underline"></div>
+      <h4 style="font-size:16px; margin-bottom:14px;">Securing the Gateways</h4>
+      <ul class="bullets">
+        <li>Our economics are protected by physical and contractual barriers.</li>
+        <li>By securing exclusive long-term partnerships with prime marinas, we control the logistics hubs of the waterways.</li>
+        <li>This exclusivity creates a high barrier to entry for any competitor attempting to enter the Florida or national markets.</li>
+      </ul>
+      <p class="statement" style="text-align:left; max-width:none;">Exclusive access creates lower ETAs, lower costs, and stronger local defensibility.</p>
+    </div>
+    <div class="split-photo" style="background-image:url('assets/sandbar-aerial.jpg');"></div>
+  </div>
+</section>
+
+<!-- ============ 10. INVESTOR SNAPSHOT ============ -->
+<section class="section section-light">
+  <div class="inner">
+    <div class="eyebrow">Investor Snapshot</div>
+    <h2 class="headline">Demand is building before full-scale monetization</h2>
+    <div class="underline"></div>
+    <div class="grid-2" style="margin-bottom:30px;">
+      <div>
+        <h3 style="font-size:22px; font-weight:700; margin-bottom:14px;">Purpose-built for ordering and delivering food, drinks, ice, essentials, catering, and future services directly to boaters.</h3>
+        <p style="margin-bottom:26px;">Initial beachhead: on-water delivery. Long-term vision: the commerce infrastructure for recreational boating worldwide.</p>
+        <div class="box teal-outline">
+          <strong class="tag" style="color:var(--navy);">What the $5M funds</strong>
+          <p>Market expansion, marina access, captain network, technology, compliance, and the first repeatable revenue-scale markets.</p>
+        </div>
+      </div>
+      <div>
+        <p style="font-weight:700; color:var(--navy); text-align:right; margin-bottom:14px;">February 15 – May 1, 2026</p>
+        <div class="stat-row" style="grid-template-columns:repeat(3,1fr); margin-bottom:24px;">
+          <div class="stat-card"><div class="num pink">805</div><div class="label">In the last 30 days<br>New boaters</div></div>
+          <div class="stat-card"><div class="num">1.5M</div><div class="label">In the last 30 days<br>Social views</div></div>
+          <div class="stat-card"><div class="num navy">$5M</div><div class="label">Round size</div></div>
+        </div>
+        <table class="data">
+          <thead><tr><th>Proof Point</th><th>Current / Placeholder</th></tr></thead>
+          <tbody>
+            <tr><td>Deliveries completed</td><td>351 (weekends only)</td></tr>
+            <tr><td>Active marinas</td><td>1</td></tr>
+            <tr><td>Signed marina agreements</td><td>18 (signed and waiting to be opened)</td></tr>
+            <tr><td>Revenue to date</td><td>$14,226</td></tr>
+            <tr><td>Gross / contribution margin</td><td>64%</td></tr>
+            <tr><td>Partner pipeline</td><td>Coca-Cola, Rivi Gin, MarineMax, Suntex</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11. THE SOLUTION ============ -->
+<section class="section" style="padding:0;">
+  <div class="split">
+    <div class="split-panel section-white" style="border-right:6px solid var(--pink);">
+      <div class="eyebrow">The Solution</div>
+      <h2 class="headline">BoatBites delivers what boaters need directly to their boat - happiness</h2>
+      <div class="underline"></div>
+      <ul class="bullets">
+        <li>Anchor your location.</li>
+        <li>Order through the BoatBites platform.</li>
+        <li>Receive delivery on the water.</li>
+        <li>Stay where you are and keep enjoying the day.</li>
+      </ul>
+      <div class="box teal-outline" style="background:var(--bg-light);">
+        <strong class="tag" style="color:var(--navy);">Built specifically for marine delivery</strong>
+        <p>On-water routing, real-time geolocation, captain delivery network, marina coordination, merchant integrations, safety workflows, and compliance infrastructure.</p>
+      </div>
+    </div>
+    <div class="split-photo" style="background-image:url('assets/sunset-boat-party.jpg');"></div>
+  </div>
+</section>
+
+<!-- ============ 12. GAME PLAN ============ -->
+<section class="section section-white">
+  <div class="inner">
+    <div class="eyebrow">Game Plan</div>
+    <h2 class="headline">How we do it</h2>
+    <div class="underline"></div>
+    <div class="grid-2" style="margin-bottom:30px;">
+      <table class="data">
+        <thead><tr><th>Marinas – 11,200 in USA</th><th>Other Access to the water</th></tr></thead>
+        <tbody>
+          <tr><td>Limited Revenue Opportunities</td><td>Waterfront Restaurants</td></tr>
+          <tr><td>BoatBites Pays Them</td><td>Boat Ramps, Public and Private – We Pay Them</td></tr>
+          <tr><td>No Operational Costs</td><td>Yacht Clubs</td></tr>
+          <tr><td>Amenity to Their Boaters</td><td>Boat Dealers on the Water</td></tr>
+          <tr><td>We Cater to Charters</td><td>1200 RV Campgrounds on the Water</td></tr>
+          <tr><td>Sign Exclusive 5 Year Contracts</td><td>Sign Exclusive 5 Year Contracts</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div class="box">
+          <strong class="tag" style="color:var(--navy);">Positioning</strong>
+          <p>BoatBites PAYS these places. Land delivery platforms take money from them.</p>
+          <h4 style="margin-top:14px; font-size:15.5px;">Strategic Opportunity for BoatBites</h4>
+          <p>These gaps converge to create a defensible market position.</p>
+        </div>
+        <div class="box pink-fill">
+          <strong class="tag" style="color:var(--navy);">Sole Operator in this space</strong>
+          <p style="color:var(--navy);">BoatBites has spent two years building relationships with the largest marina companies in the United States.<br><br>Our platform is built solely for water-based logistics and delivery.</p>
+        </div>
+      </div>
+    </div>
+    <h3 style="font-size:clamp(24px,3vw,32px); font-weight:800;">All Built for Instant Commerce &amp; Delivery</h3>
+  </div>
+</section>
+
+<!-- ============ 13. UNIT ECONOMICS ============ -->
+<section class="section section-light">
+  <div class="inner" style="position:relative;">
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon">
+    <div class="eyebrow">Unit Economics</div>
+    <h2 class="headline">Each delivery generates strong contribution margins when market density improves</h2>
+    <div class="underline"></div>
+    <div class="stat-row" style="grid-template-columns:repeat(5,1fr);">
+      <div class="stat-card"><div class="num navy">$90</div><div class="label">Average national delivery fee</div></div>
+      <div class="stat-card"><div class="num" style="color:#7A8C97;">$15</div><div class="label">Driver payout</div></div>
+      <div class="stat-card"><div class="num" style="color:#7A8C97;">$10</div><div class="label">Marina payout</div></div>
+      <div class="stat-card"><div class="num pink">$65</div><div class="label">Gross profit</div></div>
+      <div class="stat-card"><div class="num pink">72%</div><div class="label">Gross margin</div></div>
+    </div>
+    <div class="grid-2">
+      <table class="data teal-head">
+        <thead><tr><th>Metric</th><th>Current</th></tr></thead>
+        <tbody>
+          <tr><td>Average Delivery Fee</td><td>$75</td></tr>
+          <tr><td>Payment Processing / platform cost</td><td>$2.25</td></tr>
+          <tr><td>Driver delivery Fee</td><td>$15</td></tr>
+          <tr><td>Marina/Service Hub Fee</td><td>$10</td></tr>
+          <tr><td>Repeat Order Rate</td><td>5%</td></tr>
+          <tr><td>Percentage of Orders with Ice</td><td>10%</td></tr>
+        </tbody>
+      </table>
+      <div class="box" style="align-self:start;">
+        <strong class="tag">Unite Economics on Deliveries</strong>
+        <p>72% figure is the gross margin for BoatBites per delivery. We do not earn money based on the size of the order. We also earn money from ice sales, which we keep for ourselves. We have not included ice in this number.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14. BUSINESS MODEL ============ -->
+<section class="section section-white">
+  <div class="inner" style="position:relative;">
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon">
+    <div class="eyebrow">Business Model</div>
+    <h2 class="headline">BoatBites makes money across multiple high-margin revenue streams</h2>
+    <div class="underline"></div>
+    <div class="icon-row">
+      <div class="icon-card"><div class="icon-wrap"><img src="assets/jetski-icon.png" alt="Delivery fees"></div><h4>Delivery fees</h4><div class="status">Active</div><div class="margin">Margin 64%</div></div>
+      <div class="icon-card"><div class="icon-wrap"><img src="assets/yacht-icon.png" alt="Charter catering"></div><h4>Charter catering</h4><div class="status">Active / tested</div><div class="margin">Margin 72%</div></div>
+      <div class="icon-card"><div class="icon-wrap"><img src="assets/ice-bag.png" alt="Ice sales"></div><h4>Ice sales</h4><div class="status">Active / tested</div><div class="margin">Margin: 67%</div></div>
+      <div class="icon-card"><div class="icon-wrap"><img src="assets/membership-card.png" alt="Memberships"></div><h4>Memberships</h4><div class="status">Tested / planned</div><div class="margin">Margin: 70%</div></div>
+      <div class="icon-card"><div class="icon-wrap"><img src="assets/coke-coin.jpg" alt="Advertising / Sponsorships" style="border-radius:50%;"></div><h4>Advertising/Sponsorships</h4><div class="status">Early / pipeline</div><div class="margin">Margin: 70%</div></div>
+    </div>
+    <table class="data">
+      <thead><tr><th>Future Category</th><th>Potential Revenue Path</th></tr></thead>
+      <tbody>
+        <tr><td>Insurance Sales to our Drivers</td><td>Delivery Drivers must have insurance. We created the ONLY PWC commercial insurance outside of Jet Ski rentals.</td></tr>
+        <tr><td>PWC Financing (Yamaha/Sea Doo)</td><td>Commissions and sponsorships on delivery drivers buying their brands</td></tr>
+        <tr><td>Event packages</td><td>Bundled delivery and catering for water music festivals, boat manufacture launches</td></tr>
+        <tr><td>Fuel-related partnerships</td><td>Referral/partnership revenue adding them to the platform, charging per delivery</td></tr>
+        <tr><td>Concierge services</td><td>Premium service fee for yachts, premier provisioning in high value locations</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 15. WHY THIS IS HARD ============ -->
+<section class="section section-navy">
+  <div class="inner" style="position:relative;">
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon" style="filter:brightness(1.4);">
+    <div class="eyebrow">Why This Is Hard</div>
+    <h2 class="headline">On-water commerce is not a DoorDash clone</h2>
+    <div class="underline"></div>
+    <ul class="bullets">
+      <li>Land-based delivery platforms stop at the shoreline.</li>
+      <li>Insurance, regulation, routing, and safety require water purpose-built systems.</li>
+      <li>Weather, safety, insurance, and compliance are built into the operating model.</li>
+      <li>These hard operating problems are why the category is still open.</li>
+      <li>Marine delivery requires accurate boat location, marina access, captain coordination, and docking protocols.</li>
+    </ul>
+    <div class="box navy-fill" style="max-width:640px;">
+      <strong class="tag" style="color:#fff;">The insight</strong>
+      <p>These difficulties are the reasons BoatBites can build a defensible category if it wins the access points and operating density before anyone knows how big we are.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 16. BEACHHEAD STRATEGY ============ -->
+<section class="section" style="padding:0;">
+  <div class="split">
+    <div class="split-panel section-navy">
+      <div class="eyebrow">Beachhead Strategy</div>
+      <h2 class="headline" style="color:#fff;">Start where boating density, spending, and marina access create the fastest path to scale</h2>
+      <div class="underline"></div>
+      <ul class="bullets">
+        <li style="color:#DCE9ED;">Initial market focus: Florida.</li>
+        <li style="color:#DCE9ED;">Why Florida: high boating density, year-round season, marina concentration, high-income boaters, charter activity, and sandbar/event demand.</li>
+        <li style="color:#DCE9ED;">Expansion model: secure access, activate local merchants, recruit captains, and scale demand through marinas, social, charters, and events.</li>
+      </ul>
+      <table class="data pink-head" style="margin-top:10px;">
+        <thead><tr><th>Market</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Florida West</td><td>Active</td></tr>
+          <tr><td>Florida Tampa</td><td>June 2026</td></tr>
+          <tr><td>Florida South</td><td>August 2026</td></tr>
+          <tr><td>Florida Keys</td><td>November 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="split-photo" style="background-image:url('assets/globe-map.jpg');"></div>
+  </div>
+</section>
+
+<!-- ============ 17. DEFENSIBILITY ============ -->
+<section class="section" style="padding:0;">
+  <div class="split">
+    <div class="split-photo" style="background-image:url('assets/boat-bow-ocean.jpg');"></div>
+    <div class="split-panel section-navy">
+      <div class="eyebrow">Defensibility</div>
+      <h2 class="headline" style="color:#fff;">Exclusive water access creates the moat</h2>
+      <div class="underline"></div>
+      <ul class="bullets">
+        <li style="color:#DCE9ED;">Best access points can create faster delivery times and lower cost per delivery.</li>
+        <li style="color:#DCE9ED;">Marina partnerships add boater visibility, staging rights, priority docking, and local operating leverage.</li>
+        <li style="color:#DCE9ED;">Density improves the business: more boaters, more orders, more captains, faster ETAs, better margins.</li>
+        <li style="color:#DCE9ED;">Competitors without access face worse launch points, slower ETAs, and higher costs.</li>
+      </ul>
+      <table class="data pink-head" style="margin-top:10px;">
+        <thead><tr><th>Proof</th><th>Current</th></tr></thead>
+        <tbody>
+          <tr><td>Signed marina agreements</td><td>18</td></tr>
+          <tr><td>Exclusive marina agreements</td><td>10</td></tr>
+          <tr><td>Average contract length</td><td>1</td></tr>
+          <tr><td>Active launch / staging points</td><td>1</td></tr>
+          <tr><td>Marina pipeline</td><td>125</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 18. COMPETITIVE LANDSCAPE ============ -->
+<section class="section section-light">
+  <div class="inner" style="position:relative;">
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon">
+    <div class="eyebrow">Competitive Landscape</div>
+    <h2 class="headline">BoatBites is the only purpose-built platform for commerce on the water</h2>
+    <div class="underline"></div>
+    <div class="grid-2">
+      <table class="data">
+        <thead><tr><th>Alternative</th><th>Why It Falls Short on Water</th></tr></thead>
+        <tbody>
+          <tr><td>DoorDash / Uber Eats</td><td>Stops at land; no marine routing or captain network</td></tr>
+          <tr><td>Instacart</td><td>No on-water fulfillment</td></tr>
+          <tr><td>Marina stores</td><td>Limited inventory; no direct-to-boat delivery</td></tr>
+          <tr><td>Local runners</td><td>Manual, inconsistent, not scalable</td></tr>
+          <tr><td>Charter self-catering</td><td>Time-consuming and fragmented</td></tr>
+          <tr><td>Boat service apps</td><td>Not built for instant commerce and delivery</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div class="box">
+          <strong class="tag" style="color:var(--navy);">Positioning</strong>
+          <p>BoatBites is not just a food delivery app. It combines ecommerce, logistics, marine routing, marina access, captain operations, merchant integrations, and boater demand data.</p>
+          <h4 style="margin-top:14px; font-size:15.5px;">Strategic Opportunity for BoatBites</h4>
+          <p>These gaps converge to create a defensible market position.</p>
+          <p style="margin-top:10px; font-size:13px; color:#8A9BA5;">*CB Insights March 2026</p>
+        </div>
+        <div class="box pink-fill">
+          <strong class="tag" style="color:var(--navy);">Sole Operator in this space</strong>
+          <p style="color:var(--navy);">Partnerships between delivery platforms and maritime services remain virtually nonexistent. Analysis of 14 major partnerships [5] shows collaborations between platforms like Uber and retailers, Amazon and logistics providers, and Instacart with POS systems — but zero partnerships specifically targeting marina or waterfront delivery.</p>
+          <p style="margin-top:10px; font-size:13px; color:#9a6a80;">*CB Insights March 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 19. MILESTONES ACHIEVED ============ -->
+<section class="section section-white">
+  <div class="inner">
+    <div class="eyebrow">Milestones Achieved</div>
+    <h2 class="headline">BoatBites has moved from proof of concept to scalable infrastructure</h2>
+    <div class="underline"></div>
+    <div class="timeline-row">
+      <div class="timeline-card teal"><h4>2022–2023</h4><p>Built MVP/completed 500 proof-of-concept deliveries/tested pricing models/logistics</p></div>
+      <div class="timeline-card pink"><h4>2023–2024</h4><p>Tested pricing, logistics, high-margin revenue streams, and membership concepts</p></div>
+      <div class="timeline-card teal"><h4>2023–2025</h4><p>Rebuilt platform, validated demand, obtained insurance, 1500 tested deliveries, and built a team</p></div>
+      <div class="timeline-card pink"><h4>2026</h4><p>Successfully launched V3 platform in Fort Myers; expanding into charters, licensing, and multi-market growth.</p></div>
+    </div>
+    <table class="data teal-head">
+      <thead><tr><th>Current Proof</th><th>Metric</th></tr></thead>
+      <tbody>
+        <tr><td>Total deliveries completed</td><td>3500</td></tr>
+        <tr><td>Total partners / partner inquiries</td><td>750+</td></tr>
+        <tr><td>New boaters</td><td>2,500</td></tr>
+        <tr><td>Social views</td><td>2,550,000</td></tr>
+        <tr><td>Revenue to date</td><td>$15,000</td></tr>
+        <tr><td>Active marinas</td><td>4</td></tr>
+        <tr><td>Signed agreements</td><td>36</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 20. FORT MYERS BEACH LAUNCH SNAPSHOT ============ -->
+<section class="section section-black">
+  <div class="inner">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:20px; margin-bottom:10px;">
+      <div>
+        <h2 style="font-family:'Poppins'; font-weight:800; color:#F4F53A; font-size:clamp(26px,3.4vw,38px);">Fort Myers Beach: Launch Snapshot</h2>
+        <p style="color:#C9C9C9; max-width:640px; margin-top:12px;">Nine-week launch window: deliveries, revenue, efficiency, and repeat demand all point the same direction.</p>
+      </div>
+      <div style="text-align:right;">
+        <p style="color:#F4F53A; font-weight:700;">Fort Myers Beach | Feb. 19 to May 25, 2026</p>
+        <p style="color:#8A8A8A; font-size:13px; margin-top:6px;">Source: Weekly Delivery Data Report through 5/25/26</p>
+      </div>
+    </div>
+    <div class="neon-stats">
+      <div class="neon-stat"><div class="num neon-cyan">302</div><p>recorded deliveries</p></div>
+      <div class="neon-stat"><div class="num neon-green">$19,275</div><p>gross delivery-fee revenue</p></div>
+      <div class="neon-stat"><div class="num" style="color:#fff;">103</div><p>deliveries in April — strongest month, 40% of total</p></div>
+      <div class="neon-stat"><div class="num neon-magenta">$35</div><p>average delivery fee</p></div>
+      <div class="neon-stat"><div class="num neon-yellow">$0.172</div><p>customer acquisition cost</p></div>
+      <div class="neon-stat"><div class="num neon-cyan">16.7%</div><p>of tracked customers reordered — 2.24x value vs. one-time</p></div>
+    </div>
+    <div style="border-top:1px solid #2a2a2a; padding-top:26px; margin-top:10px;">
+      <p style="color:#F4F53A; font-weight:700; margin-bottom:10px;">Investor takeaway</p>
+      <p style="color:#DADADA; max-width:900px; line-height:1.6;">Order density is already compounding — April alone produced 40% of all deliveries, at a near-zero $0.172 CAC. Early repeat behavior (16.7% of tracked customers reordering at 2.24x first-order value) signals real demand, not launch novelty, and lowers effective CAC further as density rises.</p>
+      <p style="color:#777; font-size:13px; font-style:italic; margin-top:16px; max-width:900px;">Repeat-rate figures are based on a 42-customer tracked cohort, not the full 304-order launch dataset; full order-level export needed to confirm platform-wide retention.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 21. FINANCIAL PROJECTIONS ============ -->
+<section class="section section-white">
+  <div class="inner">
+    <div class="eyebrow">Financial Projections</div>
+    <h2 class="headline">Revenue scales through delivery density, charter catering, ice, memberships, and sponsorships</h2>
+    <div class="underline"></div>
+    <div class="grid-2">
+      <table class="data teal-head">
+        <thead><tr><th></th><th class="num">2026</th><th class="num">2027</th><th class="num">2028</th></tr></thead>
+        <tbody>
+          <tr><td>Delivery fees</td><td class="num">$150,500</td><td class="num">$20,621,025</td><td class="num">$103,105,125</td></tr>
+          <tr><td>Charter boat sales</td><td class="num">$375,000</td><td class="num">$5,087,163</td><td class="num">$15,261,487</td></tr>
+          <tr><td>Bagged ice sales</td><td class="num">$45,000</td><td class="num">$3,851,750</td><td class="num">$19,258,750</td></tr>
+          <tr><td>Membership fees</td><td class="num">$225,000</td><td class="num">$2,779,323</td><td class="num">$8,337,969</td></tr>
+          <tr><td>Sponsorships</td><td class="num">$50,000</td><td class="num">$1,375,000</td><td class="num">$4,812,500</td></tr>
+          <tr style="font-weight:700;"><td>Gross revenue</td><td class="num">$845,500</td><td class="num">$33,714,261</td><td class="num">$150,775,831</td></tr>
+        </tbody>
+      </table>
+      <table class="data">
+        <thead><tr><th>Required Assumption</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>Active marinas by year</td><td>25 / 350 / 1250</td></tr>
+          <tr><td>Orders per marina per month</td><td>150 / 325 / 600</td></tr>
+          <tr><td>Average delivery fee</td><td>$75</td></tr>
+          <tr><td>Average order value</td><td>$120 / $150 / $200</td></tr>
+          <tr><td>Ice attach rate</td><td>10% / 25% / 30%</td></tr>
+          <tr><td>Membership conversion rate</td><td>5% / 10% / 20%</td></tr>
+          <tr><td>Sponsorship revenue per market</td><td>$50k / $100k / $125k</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 22. FUNDING HISTORY ============ -->
+<section class="section section-light">
+  <div class="inner">
+    <div class="eyebrow">Funding History</div>
+    <h2 class="headline">Capital raised has funded proof of concept, platform rebuild, and market validation</h2>
+    <div class="underline"></div>
+    <table class="data" style="margin-bottom:30px;">
+      <thead><tr><th>Period</th><th>Round</th><th>Amount</th><th>Use</th></tr></thead>
+      <tbody>
+        <tr><td>2022-2023</td><td>Friends &amp; Family</td><td>$500,000</td><td>MVP, proof of concept, 750+ deliveries, logistics/pricing tested</td></tr>
+        <tr><td>2023-2025</td><td>Seed</td><td>$3,500,000</td><td>Platform rebuild, PMF testing, expanded across Florida, signed nationally</td></tr>
+        <tr><td>2026-2027</td><td>Series A</td><td>$5,000,000</td><td>Scale, defensibility, national expansion, marina network, delivery growth</td></tr>
+      </tbody>
+    </table>
+    <table class="data teal-head">
+      <thead><tr><th>Additional Proof Needed</th><th>Numbers</th></tr></thead>
+      <tbody>
+        <tr><td>Deliveries funded by prior rounds</td><td>3,500 beta and launch</td></tr>
+        <tr><td>Platform milestones completed</td><td>3.4.25</td></tr>
+        <tr><td>Markets launched</td><td>7</td></tr>
+        <tr><td>Marina agreements signed</td><td>36</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 23. USE OF FUNDS ============ -->
+<section class="section section-light">
+  <div class="inner" style="position:relative;">
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon">
+    <div class="eyebrow">Use of Funds</div>
+    <h2 class="headline">The $5M raise funds market expansion, technology, marina access, and operational scale</h2>
+    <div class="underline"></div>
+    <div class="grid-2">
+      <div class="pie-wrap">
+        <div class="pie">
+          <span class="p25">25%</span>
+          <span class="p20">20%</span>
+          <span class="p15">15%</span>
+          <span class="p40">40%</span>
+        </div>
+      </div>
+      <div>
+        <table class="data teal-head" style="margin-bottom:24px;">
+          <thead><tr><th>Use of Funds</th><th class="num">Allocation</th></tr></thead>
+          <tbody>
+            <tr><td>Market expansion and user acquisition</td><td class="num">40%</td></tr>
+            <tr><td>Technology and product enhancement</td><td class="num">25%</td></tr>
+            <tr><td>Operations and compliance</td><td class="num">20%</td></tr>
+            <tr><td>Marina partnerships</td><td class="num">15%</td></tr>
+          </tbody>
+        </table>
+        <table class="data">
+          <thead><tr><th>Funded Outcome</th><th>Target</th></tr></thead>
+          <tbody>
+            <tr><td>Launch new markets</td><td>75</td></tr>
+            <tr><td>Acquire boaters</td><td>20,000</td></tr>
+            <tr><td>Secure marina agreements</td><td>500</td></tr>
+            <tr><td>Expand captain network</td><td>250</td></tr>
+            <tr><td>Gross Revenues</td><td>$37,714,216</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 24. WHAT THE $5M UNLOCKS ============ -->
+<section class="section section-white">
+  <div class="inner" style="position:relative;">
+    <img src="assets/logo-icon.png" class="top-icon" alt="BoatBites icon">
+    <div class="eyebrow">What The $5M Unlocks</div>
+    <h2 class="headline">This raise turns validated demand into a scalable operating network</h2>
+    <div class="underline"></div>
+    <div class="grid-2">
+      <table class="data teal-head">
+        <thead><tr><th>By End of Funding Period</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>Active marinas</td><td>93</td></tr>
+          <tr><td>Signed marina agreements</td><td>550</td></tr>
+          <tr><td>Exclusive marina agreements</td><td>250</td></tr>
+          <tr><td>Active boaters</td><td>75,000</td></tr>
+          <tr><td>Monthly deliveries</td><td>275,000</td></tr>
+          <tr><td>Monthly revenue run-rate</td><td>$3,142,000</td></tr>
+          <tr><td>Gross margin</td><td>52%</td></tr>
+          <tr><td>Contribution margin</td><td>62%</td></tr>
+          <tr><td>Repeat order rate</td><td>11%</td></tr>
+          <tr><td>Charter partners</td><td>750</td></tr>
+          <tr><td>Sponsorship partners</td><td>150</td></tr>
+          <tr><td>Markets launched</td><td>50</td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div class="box pink-fill">
+          <strong class="tag" style="color:var(--navy);">Breakeven</strong>
+          <p style="color:var(--navy);">Break-even in 12 months from $5M funding. Leaves $2M for expansion into additional markets.</p>
+        </div>
+        <div class="box pink-fill">
+          <strong class="tag" style="color:var(--navy);">24 Month Milestones</strong>
+          <p style="color:var(--navy);">250 Active Marinas<br>75,000 Boaters<br>750 Charter Partners – 5,000 charters a year<br>50 New markets</p>
+        </div>
+        <div class="box pink-fill">
+          <strong class="tag" style="color:var(--navy);">Next Round — 36 Months — $20 Million — 2029</strong>
+          <p style="color:var(--navy);">500 market expansion<br>International expansion<br>Moves into PWC insurance and finance<br>B2B marketplace</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 25. TEAM ============ -->
+<section class="section section-light">
+  <div class="inner">
+    <div class="eyebrow">Team</div>
+    <h2 class="headline">This team is built to win in an operationally difficult market</h2>
+    <div class="underline"></div>
+    <table class="data" style="margin-bottom:28px;">
+      <thead><tr><th>Role</th><th>Name / Background Placeholder</th></tr></thead>
+      <tbody>
+        <tr><td>CEO</td><td>John Bonaccorso — Sold company to Apple/Founded multiple startups, scaled companies for Amex/developed tech for Sony</td></tr>
+        <tr><td>Operations Lead</td><td>Colleen Ferrary — 20+ years driving growth and ops in Fortune 100 and startups.</td></tr>
+        <tr><td>Technology Lead</td><td>Chris Weems – Meta lead application designer and engineer.</td></tr>
+        <tr><td>Maritime law</td><td>Chip Birthisel — Maritime Lawyer/HamiltonMillerBirthisel. Practiced before the US Supreme Court &amp; 20 Year US Coast Guard Veteran.</td></tr>
+        <tr><td>Compliance / Insurance</td><td>Jack Falvey — CEO of Falvey Insurance, is an Investor with expertise in logistics, platforms, go-to-market strategy, and operational innovation.</td></tr>
+        <tr><td>Advisors</td><td>Ridaa Murad, Managing Partner of Topaz Capital, Founder of The Bedrock Group, and Breakform Ventures, brings extensive business and financial expertise.</td></tr>
+      </tbody>
+    </table>
+    <div class="box pink-fill">
+      <p style="color:var(--navy); text-align:center; font-size:15.5px; line-height:1.7;">The BoatBites team combines elite tech DNA with unmatched expertise in maritime, logistics, and regulations. Led by a serial entrepreneur with an Apple exit, a Meta lead engineer, and a COO with 20+ years of Fortune 100 experience, we are built for rapid scaling. To conquer maritime delivery's high barriers to entry, our Board and Advisors feature a Supreme Court-practicing maritime lawyer, specialized gig and alcohol compliance attorneys, top insurance executives, and leading venture capitalists. This purpose-built team has heavily de-risked on-water delivery, uniquely positioning us to dominate this untapped market.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 26. CLOSING ============ -->
+<section class="section" style="padding:0;">
+  <div style="position:relative; min-height:100vh; display:flex; align-items:center; background:#0a2c3d;">
+    <div style="position:absolute; inset:0; background-image:url('assets/friends-toast.jpg'); background-size:cover; background-position:center;"></div>
+    <div style="position:absolute; inset:0; background:linear-gradient(100deg, rgba(6,40,55,.95) 0%, rgba(6,40,55,.85) 38%, rgba(6,40,55,.45) 68%, rgba(6,40,55,.25) 100%);"></div>
+    <div class="inner" style="padding:0 8vw; width:100%;">
+      <img src="assets/logo-full.png" alt="BoatBites — Anchor. Order. Enjoy." class="logo-full" style="margin-bottom:56px;">
+      <h2 style="font-family:'Poppins'; font-weight:800; color:#fff; font-size:clamp(28px,4vw,42px); max-width:700px; line-height:1.2; margin-bottom:20px;">BoatBites is raising $5M to scale the commerce infrastructure for life on the water</h2>
+      <p style="color:var(--teal); font-family:'Poppins'; font-weight:700; font-size:18px; margin-bottom:44px;">Starting with direct-to-boat delivery.</p>
+      <div style="max-width:520px; margin-bottom:50px;">
+        <table class="data pink-head">
+          <thead><tr><th>Term</th><th>Current</th></tr></thead>
+          <tbody>
+            <tr><td>Raise</td><td>$5M</td></tr>
+            <tr><td>Valuation</td><td>$20M pre-money</td></tr>
+            <tr><td>Instrument</td><td>Equity $.50/share</td></tr>
+            <tr><td>18 month revenue run-rate target</td><td>$3,142,000</td></tr>
+            <tr><td>18 active marina target</td><td>125</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:#fff; font-size:19px; margin-bottom:6px;">John Bonaccorso/Founder</p>
+      <p style="color:#DCE9ED; font-size:16px;">John@BoatBites.app</p>
+      <p style="color:#DCE9ED; font-size:16px;">BoatBites.app &nbsp;|&nbsp; 321.507.5070</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>BoatBites — Commerce and Logistics for Life on the Water</p>
+</footer>
+
+</body>
+</html>
